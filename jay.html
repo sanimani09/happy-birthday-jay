@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Jay ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd1dc, #e0c3fc);
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.slideshow {
+    position: relative;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.slide {
+    width: 100%;
+    border-radius: 20px;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.button {
+    background: #ff8fab;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #ff4d6d;
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.letter {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.6);
+    padding: 20px;
+    border-radius: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.music {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);} 
+    to { opacity: 1; transform: translateY(0);} 
+}
+
+.heart {
+    font-size: 24px;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0);} 
+    50% { transform: translateY(-10px);} 
+}
+
+.doc-link {
+    display: inline-block;
+    margin-top: 10px;
+    background: #ff8fab;
+    padding: 10px 18px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.doc-link:hover {
+    background: #ff4d6d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Birthday Jay 🎂❤️</h1>
+
+    <div class="heart">💖</div>
+
+    <!-- Slideshow -->
+    <div class="slideshow">
+        <img class="slide" src="images1/photo1.jpeg">
+        <img class="slide" src="images1/photo 2.jpeg">
+        <img class="slide" src="images1/photo 3.jpeg">
+        <img class="slide" src="images1/photo 4.jpeg">
+        <img class="slide" src="images1/photo 5.jpeg">
+        <img class="slide" src="images1/photo 6.jpeg">
+    </div>
+
+    <!-- Buttons -->
+    <button class="button" onclick="showLetter()">Open Letter 💌</button>
+    <button class="button" onclick="showSurprise()">Click for Surprise 🎁</button>
+    <button class="button" onclick="showMusic()">Music 🎵</button>
+    <button class="button" onclick="showUnexpected()">Unexpected 📄</button>
+
+    <!-- Letter -->
+    <div id="letter" class="letter hidden">
+        <p>
+        Happy Birthday Jay ❤️<br><br>
+        You are not just a person in my life, you are a feeling… a comfort… a memory I never want to lose.
+        Every moment with you means everything to me.
+        I hope this year gives you all the happiness in the world 💖<br><br>
+        Always,<br>
+        Someone who truly cares ❤️
+        </p>
+    </div>
+
+    <!-- Surprise -->
+    <div id="surprise" class="hidden">
+        <img src="images/photo.jpeg"
+        style="width:100%; max-width:300px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.2); margin-bottom:15px;">
+        <p>You make every moment special 💕</p>
+    </div>
+
+    <!-- Music Section -->
+    <div id="music" class="music hidden">
+        <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/324Rkd88VMnFBGwwdudRKI"
+            width="100%" height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+        <p>These songs are for you 💖</p>
+    </div>
+
+    <!-- Unexpected Section -->
+    <div id="unexpected" class="music hidden">
+        <p>Click below to open your special birthday letter 💖</p>
+
+        <a href="happy birthday.docx" target="_blank" class="doc-link">
+            Open Word Document 📄
+        </a>
+    </div>
+
+</div>
+
+<script>
+let index = 0;
+let slides = document.getElementsByClassName("slide");
+
+if (slides.length > 0) {
+    slides[0].style.display = "block";
+}
+
+function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    index++;
+    if (index > slides.length) {
+        index = 1;
+    }
+
+    slides[index - 1].style.display = "block";
+    setTimeout(showSlides, 2500);
+}
+
+showSlides();
+
+function showLetter() {
+    document.getElementById("letter").classList.toggle("hidden");
+}
+
+function showSurprise() {
+    document.getElementById("surprise").classList.toggle("hidden");
+}
+
+function showMusic() {
+    document.getElementById("music").classList.toggle("hidden");
+}
+
+function showUnexpected() {
+    document.getElementById("unexpected").classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>
